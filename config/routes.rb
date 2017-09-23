@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
+  root to: 'events#index'
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
     :sessions => 'users/sessions'

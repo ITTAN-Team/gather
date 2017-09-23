@@ -1,47 +1,74 @@
-<p id="notice"><%= notice %></p>
+<div id="event-index">
+  <p id="notice"><%= notice %></p>
 
-<h1>Events</h1>
+  <h1>Events</h1>
 
-<%= form_for(@event, url: search_events_path, html: { method: :get, role: 'form' }) do |f| %>
-  <div>
-    <label>タイトル</label>
-    <%= f.text_field :name %>
-    <label>開催日</label>
-    <%= f.text_field :event_date %>
-    <label>場所</label>
-    <%= f.text_field :address %>
-    <label>内容</label>
-    <%= f.text_field :description %>
-  </div>
-  <div class="actions">
-    <%= f.submit '検索' %>
-  </div>
-<% end %>
-
-<div>
-  <% @events.each do |event| %>
-      <div style="border: 1px solid gray; margin-bottom: 15px;">
-        <% if event.image.present? then %>
-          <%= image_tag event.image %>
-        <% end %>
-        <label>タイトル</label>
-        <div><%= event.name %></div>
-        <label>開催日</label>
-        <div><%= event.event_date %></div>
-        <label>開催場所</label>
-        <div><%= event.address %></div>
-        <label>定員</label>
-        <div><%= event.capacity %></div>
-        <label>説明</label>
-        <div><%= event.description %></div>
-        <div><%= link_to 'Show', event %></div>
-        <!--TODO 権限管理-->
-        <!--<div><%= link_to 'Edit', edit_event_path(event) %></div>-->
-        <!--<div><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></div>-->
-      </div>
+  <%= form_for(@event, url: search_events_path, html: { method: :get, role: 'form' }) do |f| %>
+    <div>
+      <label>タイトル</label>
+      <%= f.text_field :name %>
+      <label>開催日</label>
+      <%= f.text_field :event_date %>
+      <label>場所</label>
+      <%= f.text_field :address %>
+      <label>内容</label>
+      <%= f.text_field :description %>
+    </div>
+    <div class="actions">
+      <%= f.submit '検索' %>
+    </div>
   <% end %>
+
+  <%= link_to 'イベントを作成する', new_event_path %>
+
+  <div>
+    <h4>主催のイベント</h4>
+    <% @sponsorship_events.each do |sponsorship_event| %>
+        <div style="border: 1px solid gray; margin-bottom: 15px;">
+          <% if sponsorship_event.event.image.present? then %>
+            <%= image_tag sponsorship_event.event.image %>
+          <% end %>
+          <label>タイトル</label>
+          <div><%= sponsorship_event.event.name %></div>
+          <label>開催日</label>
+          <div><%= sponsorship_event.event.event_date %></div>
+          <label>開催場所</label>
+          <div><%= sponsorship_event.event.address %></div>
+          <label>定員</label>
+          <div><%= sponsorship_event.event.capacity %></div>
+          <label>説明</label>
+          <div><%= sponsorship_event.event.description %></div>
+          <div><%= link_to 'イベントの詳細', sponsorship_event.event %></div>
+          <% if is_admin?(current_user.id, sponsorship_event.event.id) then %>
+            <div><%= link_to 'イベントを編集', edit_event_path(sponsorship_event.event) %></div>
+          <% end %>
+        </div>
+    <% end %>
+  </div>
+
+  <div>
+    <h4>参加中のイベント</h4>
+    <% @participateds_events.each do |participateds_event| %>
+        <div style="border: 1px solid gray; margin-bottom: 15px;">
+          <% if participateds_event.event.image.present? then %>
+              <%= image_tag participateds_event.event.image %>
+          <% end %>
+          <label>タイトル</label>
+          <div><%= participateds_event.event.name %></div>
+          <label>開催日</label>
+          <div><%= participateds_event.event.event_date %></div>
+          <label>開催場所</label>
+          <div><%= participateds_event.event.address %></div>
+          <label>定員</label>
+          <div><%= participateds_event.event.capacity %></div>
+          <label>説明</label>
+          <div><%= participateds_event.event.description %></div>
+          <div><%= link_to 'イベントの詳細', participateds_event.event %></div>
+          <% if is_admin?(current_user.id, participateds_event.event.id) then %>
+              <div><%= link_to 'イベントを編集', edit_event_path(participateds_event.event) %></div>
+          <% end %>
+        </div>
+    <% end %>
+  </div>
+
 </div>
-
-<br>
-
-<%= link_to 'New Event', new_event_path %>

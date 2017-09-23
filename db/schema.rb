@@ -12,15 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20170921130758) do
 
-  create_table "event_has_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "event_id"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["event_id"], name: "index_event_has_users_on_event_id", using: :btree
-    t.index ["user_id"], name: "index_event_has_users_on_user_id", using: :btree
-  end
-
   create_table "event_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.boolean  "main"
     t.text     "image_url",  limit: 65535
@@ -28,6 +19,16 @@ ActiveRecord::Schema.define(version: 20170921130758) do
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.index ["event_id"], name: "index_event_images_on_event_id", using: :btree
+  end
+
+  create_table "event_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.boolean  "admin",      default: false
+    t.integer  "event_id"
+    t.integer  "user_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["event_id"], name: "index_event_users_on_event_id", using: :btree
+    t.index ["user_id"], name: "index_event_users_on_user_id", using: :btree
   end
 
   create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -66,7 +67,7 @@ ActiveRecord::Schema.define(version: 20170921130758) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "event_has_users", "events"
-  add_foreign_key "event_has_users", "users"
   add_foreign_key "event_images", "events"
+  add_foreign_key "event_users", "events"
+  add_foreign_key "event_users", "users"
 end

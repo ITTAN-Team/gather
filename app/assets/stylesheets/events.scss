@@ -1,3 +1,22 @@
-// Place all the styles related to the events controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "shadow";
+
+#event-show {
+  position: relative;
+  #invitation {
+    display: none;
+    position: absolute;
+    margin: auto;
+    padding: 15px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 20%;
+    height: 25%;
+    border-radius: 5px;
+    @extend .depth-4;
+    #invitation-url {
+      padding: 5px;
+    }
+  }
+}

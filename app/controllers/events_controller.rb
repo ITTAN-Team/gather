@@ -4,7 +4,8 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @sponsorship_events = Event.get_sponsorship_events(current_user.id)
+    @participateds_events = Event.get_participateds_events(current_user.id)
     @event = Search::Event.new
   end
 
@@ -30,10 +31,14 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
+    # イベント作成者は管理者となる
     @event = Event.new(event_params)
 
     respond_to do |format|
       if @event.save
+        # TODO もっと良い方法が確実にある
+        events_user = EventUser.new(user_id: current_user.id, event_id: @event.id, admin: true)
+        events_user.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
