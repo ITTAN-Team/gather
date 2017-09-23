@@ -7,8 +7,10 @@ class CreateEvents < ActiveRecord::Migration[5.0]
       t.text :location_url
       t.text :address
       t.text :link
-      t.text :capacity, limit: 255
+      t.text :image
+      t.integer :capacity
       t.integer :group_id
+      t.timestamp :event_date
       t.timestamps
     end
   end

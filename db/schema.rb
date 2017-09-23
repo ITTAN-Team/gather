@@ -37,8 +37,10 @@ ActiveRecord::Schema.define(version: 20170921130758) do
     t.text     "location_url", limit: 65535
     t.text     "address",      limit: 65535
     t.text     "link",         limit: 65535
-    t.text     "capacity",     limit: 255
+    t.text     "image",        limit: 65535
+    t.integer  "capacity"
     t.integer  "group_id"
+    t.datetime "event_date"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
   end
