@@ -5,6 +5,12 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @events = Event.all
+    @event = Search::Event.new
+  end
+
+  def search
+    @event = Search::Event.new(search_params)
+    @events = @event.matches
   end
 
   # GET /events/1
@@ -69,6 +75,12 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.fetch(:event, {})
+      params.fetch(:event, {}).permit(:image, :name, :event_date, :address, :location_url, :capacity, :description, :link)
+    end
+
+    def search_params
+      params
+          .require(:search_event)
+          .permit(Search::Event::ATTRIBUTES)
     end
 end
