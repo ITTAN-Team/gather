@@ -17,6 +17,6 @@
 .byebug_history
 
 # Ignore other
-*.DS_Store
+.DS_Store
 .idea
 lib/
