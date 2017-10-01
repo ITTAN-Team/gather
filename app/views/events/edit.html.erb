@@ -1,8 +1,21 @@
-<div id="event-edit">
-  <h1>イベント編集</h1>
+<header>
+  <div class="header-logo">
+    Gather
+  </div>
+  <ul class="header-menus">
+    <li><%= link_to('プロフィールを修正', '/events/new')%></li>
+    <li><%= link_to('イベントを作成', '/events/new')%></li>
+    <li><%= link_to('ログアウト', '/sign_out')%></li>
+  </ul>
+</header>
 
-  <%= render 'form', event: @event %>
+<div class="main">
+  <div id="event-edit">
+    <h1>イベント編集</h1>
 
-  <%= link_to 'Show', @event %> |
-  <%= link_to 'Back', events_path %>
+    <%= render 'form', event: @event %>
+
+    <%= link_to 'Show', @event %> |
+    <%= link_to 'Back', events_path %>
+  </div>
 </div>

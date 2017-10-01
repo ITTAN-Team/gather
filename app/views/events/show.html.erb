@@ -1,3 +1,14 @@
+<header>
+  <div class="header-logo">
+    Gather
+  </div>
+  <ul class="header-menus">
+    <li><%= link_to('プロフィールを修正', '/events/new')%></li>
+    <li><%= link_to('イベントを作成', '/events/new')%></li>
+    <li><%= link_to('ログアウト', '/sign_out')%></li>
+  </ul>
+</header>
+
 <script>
   $(function(){
     $('#invitation-url').val('http://localhost:3000/users/sign_up?event_id='+<%= raw @event.id %>)
@@ -15,79 +26,83 @@
     });
   });
 </script>
-<div id="event-show">
-  <p id="notice"><%= notice %></p>
-  <div id="invitation">
-    <div>招待URL</div>
-    <div>
-      <input id="invitation-url" value="" size="30">
+
+<div class="main">
+  <div id="event-show">
+    <p id="notice"><%= notice %></p>
+    <div id="invitation">
+      <div>招待URL</div>
+      <div>
+        <input id="invitation-url" value="" size="30">
+      </div>
+      <button id="url-copy">コピー</button>
+      <button id="invitation-close">閉じる</button>
     </div>
-    <button id="url-copy">コピー</button>
-    <button id="invitation-close">閉じる</button>
-  </div>
-  <div>
-    <button id="publish-url">招待URL発行</button>
-  </div>
-  <h2><%= @event.name %></h2>
-  <div>
-    <label>開催日</label>
-    <%= @event.event_date %>
-  </div>
-  <div>
-    <label>会場</label>
-    <%= @event.address %>
-  </div>
-  <div>
-    <label>定員</label>
-    <%= @event.capacity %>
-  </div>
-  <div>
-    <label>説明</label>
-    <%= @event.description %>
-  </div>
-  <div>
-    <label>関連リンク</label>
-    <%= @event.link %>
-  </div>
-  <div>
-    <label>管理者</label>
+    <div>
+      <button id="publish-url">招待URL発行</button>
+    </div>
+    <h2><%= @event.name %></h2>
+    <div>
+      <label>開催日</label>
+      <%= @event.event_date %>
+    </div>
+    <div>
+      <label>会場</label>
+      <%= @event.address %>
+    </div>
+    <div>
+      <label>定員</label>
+      <%= @event.capacity %>
+    </div>
+    <div>
+      <label>説明</label>
+      <%= @event.description %>
+    </div>
+    <div>
+      <label>関連リンク</label>
+      <%= @event.link %>
+    </div>
+    <div>
+      <label>管理者</label>
 
-    <% if @event.event_users.present? then %>
-        <% @event.event_users.each do |event_user| %>
-            <% if event_user.admin then %>
-                <div>
-                  <%= event_user.user.sei %>
-                  <%= event_user.user.mei %>
-                </div>
-            <% end %>
-        <% end %>
+      <% if @event.event_users.present? then %>
+          <% @event.event_users.each do |event_user| %>
+              <% if event_user.admin then %>
+                  <div>
+                    <%= event_user.user.sei %>
+                    <%= event_user.user.mei %>
+                  </div>
+              <% end %>
+          <% end %>
+      <% end %>
+
+    </div>
+
+    <div>
+      <label>参加者</label>
+      <% if @event.event_users.present? then %>
+          <%= @event.event_users.size %>
+          人
+      <% end %>
+
+      <% if @event.event_users.present? then %>
+          <% @event.event_users.each do |event_user| %>
+              <% unless event_user.admin then %>
+                  <div>
+                    <%= event_user.user.sei %>
+                    <%= event_user.user.mei %>
+                  </div>
+              <% end %>
+          <% end %>
+      <% end %>
+    </div>
+
+    <% if is_admin?(current_user.id, @event.id) then %>
+        <%= link_to 'イベントを編集', edit_event_path(@event) %>
+        <%= link_to 'イベントを削除', @event, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
     <% end %>
+    <%= link_to '戻る', events_path %>
 
   </div>
-
-  <div>
-    <label>参加者</label>
-    <% if @event.event_users.present? then %>
-        <%= @event.event_users.size %>
-        人
-    <% end %>
-
-    <% if @event.event_users.present? then %>
-        <% @event.event_users.each do |event_user| %>
-            <% unless event_user.admin then %>
-                <div>
-                  <%= event_user.user.sei %>
-                  <%= event_user.user.mei %>
-                </div>
-            <% end %>
-        <% end %>
-    <% end %>
-  </div>
-
-  <% if is_admin?(current_user.id, @event.id) then %>
-      <%= link_to 'イベントを編集', edit_event_path(@event) %>
-      <%= link_to 'イベントを削除', @event, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
-  <% end %>
-  <%= link_to '戻る', events_path %>
 
 </div>
