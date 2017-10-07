@@ -62,35 +62,50 @@ body {
   border-radius: 2rem;
 }
 
+//.g-button-green {
+//  padding: .4rem;
+//  background: #78F0A0;
+//  /* Old browsers */
+//  background: -moz-linear-gradient(-45deg, #78F0A0 0%, #67C3CA 100%);
+//  /* FF3.6+ */
+//  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #78F0A0), color-stop(100%, #67C3CA));
+//  /* Chrome,Safari4+ */
+//  background: -webkit-linear-gradient(-45deg, #78F0A0 0%, #67C3CA 100%);
+//  /* Chrome10+,Safari5.1+ */
+//  background: -o-linear-gradient(-45deg, #78F0A0 0%, #67C3CA 100%);
+//  /* Opera 11.10+ */
+//  background: -ms-linear-gradient(-45deg, #78F0A0 0%, #67C3CA 100%);
+//  /* IE10+ */
+//  background: linear-gradient(-45deg, #78F0A0 0%, #67C3CA 100%);
+//  /* W3C */
+//  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#78F0A0, endColorstr=#67C3CA, GradientType=1);
+//  /* IE6-9 fallback on horizontal gradient */
+//  color: #ffffff;
+//  border: none;
+//  border-radius: 2rem;
+//  cursor: pointer;
+//  text-decoration: none !important;
+//  &:hover, &:visited, &:link, &:active {
+//    color: #FFFFFF;
+//  }
+//}
+
 .g-button-green {
+  display: inline-block;
   padding: .4rem;
-  background: #78F0A0;
-  /* Old browsers */
-  background: -moz-linear-gradient(-45deg, #78F0A0 0%, #67C3CA 100%);
-  /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #78F0A0), color-stop(100%, #67C3CA));
-  /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(-45deg, #78F0A0 0%, #67C3CA 100%);
-  /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(-45deg, #78F0A0 0%, #67C3CA 100%);
-  /* Opera 11.10+ */
-  background: -ms-linear-gradient(-45deg, #78F0A0 0%, #67C3CA 100%);
-  /* IE10+ */
-  background: linear-gradient(-45deg, #78F0A0 0%, #67C3CA 100%);
-  /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#78F0A0, endColorstr=#67C3CA, GradientType=1);
-  /* IE6-9 fallback on horizontal gradient */
-  color: #ffffff;
-  border: none;
+  background: #ffffff;
+  color: #4AA69D;
+  border: 2px solid #4AA69D;
   border-radius: 2rem;
   cursor: pointer;
   text-decoration: none !important;
   &:hover, &:visited, &:link, &:active {
-    color: #FFFFFF;
+    color: #4AA69D;
   }
 }
 
 .g-button-blue {
+  display: inline-block;
   padding: .4rem;
   background: #ACECEE;
   /* Old browsers */

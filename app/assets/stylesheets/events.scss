@@ -1,5 +1,40 @@
 @import "shadow";
 
+#event-index {
+  font-family: 'Tsukushi A Round Gothic';
+  h1 {
+    text-align: center;
+    color: #808080;
+  }
+  h2 {
+    color: #808080;
+  }
+  .row {
+    margin-top: 15px;
+  }
+  .event {
+    margin-bottom: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    .image {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    }
+    .info {
+      padding: 15px;
+      .date {
+        font-size: .8rem;
+        color: #808080;
+      }
+      .name {
+        font-size: 1.5rem;
+      }
+      .capacity {
+        font-size: .8rem;
+        color: #808080;
+      }
+    }
+  }
+}
+
 #event-show {
   position: relative;
   #invitation {
