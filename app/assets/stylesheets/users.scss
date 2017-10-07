@@ -1,0 +1,58 @@
+#user-login {
+  font-family: 'Tsukushi A Round Gothic';
+  .separate {
+    position: relative;
+    margin-bottom: 40px;
+    border: 2px solid #808080;
+    .or {
+      position: absolute;
+      top: -13px;
+      left: 0px;
+      right: 0px;
+      bottom: 0px;
+      margin: auto;
+      z-index: 10;
+      height: 40px;
+      width: 80px;
+      background-color: #ffffff;
+      color: #808080;
+      font-size: 30px;
+      text-align: center;
+    }
+  }
+  .icon-box {
+    margin-bottom: 60px;
+    .icon-cube {
+      position: relative;
+      padding: 30px 38px;
+      margin: 20px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    .facebook {
+      background-color: #4A66AD;
+    }
+    .twitter {
+      background-color: #5BA0EC;
+    }
+    .google {
+      background-color: #D06558;
+    }
+    i {
+      position: absolute;
+      top: 14px;
+      left: 18px;
+      color: #ffffff;
+    }
+  }
+  .row {
+    margin-top: 15px;
+  }
+}
+
+.user-registration {
+  font-family: 'Tsukushi A Round Gothic';
+  .row {
+    margin-top: 15px;
+  }
+}

@@ -53,8 +53,69 @@ body {
 }
 
 .container {
-  margin-top: 8%;
+  margin-top: 16%;
   margin-bottom: 4%;
+}
+
+.form-control {
+  border: 2px solid rgba(0, 0, 0, 0.15);
+  border-radius: 2rem;
+}
+
+.g-button-green {
+  padding: .4rem;
+  background: #78F0A0;
+  /* Old browsers */
+  background: -moz-linear-gradient(-45deg, #78F0A0 0%, #67C3CA 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #78F0A0), color-stop(100%, #67C3CA));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(-45deg, #78F0A0 0%, #67C3CA 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(-45deg, #78F0A0 0%, #67C3CA 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(-45deg, #78F0A0 0%, #67C3CA 100%);
+  /* IE10+ */
+  background: linear-gradient(-45deg, #78F0A0 0%, #67C3CA 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#78F0A0, endColorstr=#67C3CA, GradientType=1);
+  /* IE6-9 fallback on horizontal gradient */
+  color: #ffffff;
+  border: none;
+  border-radius: 2rem;
+  cursor: pointer;
+  text-decoration: none !important;
+  &:hover, &:visited, &:link, &:active {
+    color: #FFFFFF;
+  }
+}
+
+.g-button-blue {
+  padding: .4rem;
+  background: #ACECEE;
+  /* Old browsers */
+  background: -moz-linear-gradient(-45deg, #ACECEE 0%, #AF77F1 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #ACECEE), color-stop(100%, #AF77F1));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(-45deg, #ACECEE 0%, #AF77F1 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(-45deg, #ACECEE 0%, #AF77F1 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(-45deg, #ACECEE 0%, #AF77F1 100%);
+  /* IE10+ */
+  background: linear-gradient(-45deg, #ACECEE 0%, #AF77F1 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ACECEE, endColorstr=#AF77F1, GradientType=1);
+  /* IE6-9 fallback on horizontal gradient */
+  color: #ffffff;
+  border: none;
+  border-radius: 2rem;
+  cursor: pointer;
+  text-decoration: none !important;
+  &:hover, &:visited, &:link, &:active {
+    color: #FFFFFF;
+  }
 }
 
 /* ヘッダー ================================ */
@@ -63,7 +124,7 @@ header {
   position: fixed;
   top: 0;
   height: 12%;
-  z-index: 1;
+  z-index: 100;
   width: 100%;
   background-color: #ffffff;
   box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.14), 0px 2px 2px 0px rgba(0, 0, 0, 0.098), 0px 1px 5px 0px rgba(0, 0, 0, 0.084);
