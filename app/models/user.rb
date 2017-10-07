@@ -9,7 +9,6 @@ class User < ApplicationRecord
 
   validates :email, {presence: true, uniqueness: true, length: {maximum: 255}}
   validates :encrypted_password, {presence: true, length: {maximum: 255}}
-  validates :sei, length: {maximum: 255}
-  validates :mei, length: {maximum: 255}
+  validates :name, {presence: true, length: {maximum: 255}}
   validates :image, length: {maximum: 65535}
 end
