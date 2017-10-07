@@ -1,16 +1,42 @@
-<h2>パスワードを忘れた方</h2>
-
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :登録したメールアドレス %><br />
-    <%= f.email_field :email, autofocus: true %>
+<header>
+  <div class="header-logo">
+    Gather
   </div>
+</header>
 
-  <div class="actions">
-    <%= f.submit "パスワードリセットの案内をメールに送る" %>
+<div class="container">
+  <div id="user-password">
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <%= devise_error_messages! %>
+
+      <div class="row justify-content-md-center text-center icon-box">
+        <div class="col-md-8 col-md-offset-2">
+          <%= f.email_field :email, autofocus: true , class: 'form-control', placeholder: '登録したメールアドレス' %>
+        </div>
+      </div>
+
+      <div class="row justify-content-md-center">
+        <div class="col-md-8 col-md-offset-2 text-right">
+          <%= f.submit "パスワードリセットの案内をメールに送る", class: 'g-button-blue px-5' %>
+        </div>
+      </div>
+
+    <% end %>
+
+    <%- if controller_name != 'sessions' %>
+        <div class="row justify-content-md-center">
+          <div class="col-md-8 col-md-offset-2 text-right">
+            <%= link_to "アカウントを持っている方はこちら", new_session_path(resource_name), class: 'g-button-blue px-5' %>
+          </div>
+        </div>
+    <% end -%>
+
+    <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+        <div class="row justify-content-md-center">
+          <div class="col-md-8 col-md-offset-2 text-right">
+            <%= link_to "新規アカウント作成", new_registration_path(resource_name), class: 'g-button-blue px-5' %>
+          </div>
+        </div>
+    <% end -%>
   </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>
