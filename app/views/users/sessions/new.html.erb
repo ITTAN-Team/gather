@@ -39,13 +39,16 @@
               <span class="custom-control-indicator"></span>
               <span class="custom-control-description">パスワードを記憶する</span>
             </label>
+            <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+                <%= link_to "パスワードを忘れた方はこちら", new_password_path(resource_name), class: 'pull-right' %><br />
+            <% end -%>
           </div>
         </div>
       <% end -%>
 
       <div class="row justify-content-md-center">
         <div class="col-md-8 col-md-offset-2 text-right">
-          <%= f.submit "ログイン", class: 'g-button-green px-5' %>
+          <%= f.submit "ログイン", class: 'g-button-blue px-5' %>
         </div>
       </div>
 

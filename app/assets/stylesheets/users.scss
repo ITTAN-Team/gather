@@ -44,14 +44,29 @@
       left: 18px;
       color: #ffffff;
     }
+    .fa-facebook {
+      top: 14px;
+      left: 18px;
+    }
+    .fa-twitter {
+      top: 14px;
+      left: 18px;
+    }
+    .fa-google-plus {
+      top: 14px;
+      left: 10px;
+    }
   }
   .row {
     margin-top: 15px;
   }
 }
 
-.user-registration {
-  font-family: 'Tsukushi A Round Gothic';
+#user-registration {
+  @extend #user-login
+}
+
+#user-password {
   .row {
     margin-top: 15px;
   }
