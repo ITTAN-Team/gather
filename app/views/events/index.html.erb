@@ -61,25 +61,68 @@
     <div>
       <h4>参加中のイベント</h4>
       <% @participateds_events.each do |participateds_event| %>
-          <div style="border: 1px solid gray; margin-bottom: 15px;">
-            <% if participateds_event.event.image.present? then %>
-                <%= image_tag participateds_event.event.image %>
-            <% end %>
-            <label>タイトル</label>
-            <div><%= participateds_event.event.name %></div>
-            <label>開催日</label>
-            <div><%= participateds_event.event.event_date %></div>
-            <label>開催場所</label>
-            <div><%= participateds_event.event.address %></div>
-            <label>定員</label>
-            <div><%= participateds_event.event.capacity %></div>
-            <label>説明</label>
-            <div><%= participateds_event.event.description %></div>
-            <div><%= link_to 'イベントの詳細', participateds_event.event %></div>
-            <% if is_admin?(current_user.id, participateds_event.event.id) then %>
-                <div><%= link_to 'イベントを編集', edit_event_path(participateds_event.event) %></div>
-            <% end %>
-          </div>
+          <% if is_join?(participateds_event.status) then %>
+            <div style="border: 1px solid gray; margin-bottom: 15px;">
+              <% if participateds_event.event.image.present? then %>
+                  <%= image_tag participateds_event.event.image %>
+              <% end %>
+              <label>タイトル</label>
+              <div><%= participateds_event.event.name %></div>
+              <label>開催日</label>
+              <div><%= participateds_event.event.event_date %></div>
+              <label>開催場所</label>
+              <div><%= participateds_event.event.address %></div>
+              <label>定員</label>
+              <div><%= participateds_event.event.capacity %></div>
+              <label>説明</label>
+              <div><%= participateds_event.event.description %></div>
+              <div><%= link_to 'イベントの詳細', participateds_event.event %></div>
+              <% if is_join?(participateds_event.status) then %>
+                  <div><%= link_to '参加を見送る', leave_event_path(participateds_event.event.id), method: :post %></div>
+              <% end %>
+              <% if is_leave?(participateds_event.status) then %>
+                  <div><%= link_to '参加する', join_event_path(participateds_event.event.id), method: :post %></div>
+              <% end %>
+              <div><%= link_to 'イベントの詳細', participateds_event.event %></div>
+              <% if is_admin?(current_user.id, participateds_event.event.id) then %>
+                  <div><%= link_to 'イベントを編集', edit_event_path(participateds_event.event) %></div>
+              <% end %>
+            </div>
+          <% end %>
+      <% end %>
+    </div>
+
+    <div>
+      <h4>招待されているイベント</h4>
+      <% @participateds_events.each do |participateds_event| %>
+          <% if is_leave?(participateds_event.status) then %>
+            <div style="border: 1px solid gray; margin-bottom: 15px;">
+              <% if participateds_event.event.image.present? then %>
+                  <%= image_tag participateds_event.event.image %>
+              <% end %>
+              <label>タイトル</label>
+              <div><%= participateds_event.event.name %></div>
+              <label>開催日</label>
+              <div><%= participateds_event.event.event_date %></div>
+              <label>開催場所</label>
+              <div><%= participateds_event.event.address %></div>
+              <label>定員</label>
+              <div><%= participateds_event.event.capacity %></div>
+              <label>説明</label>
+              <div><%= participateds_event.event.description %></div>
+              <div><%= link_to 'イベントの詳細', participateds_event.event %></div>
+              <% if is_join?(participateds_event.status) then %>
+                  <div><%= link_to '参加を見送る', leave_event_path(participateds_event.event.id), method: :post %></div>
+              <% end %>
+              <% if is_leave?(participateds_event.status) then %>
+                  <div><%= link_to '参加する', join_event_path(participateds_event.event.id), method: :post %></div>
+              <% end %>
+              <div><%= link_to 'イベントの詳細', participateds_event.event %></div>
+              <% if is_admin?(current_user.id, participateds_event.event.id) then %>
+                  <div><%= link_to 'イベントを編集', edit_event_path(participateds_event.event) %></div>
+              <% end %>
+            </div>
+          <% end %>
       <% end %>
     </div>
 

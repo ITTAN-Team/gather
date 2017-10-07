@@ -14,6 +14,24 @@ class EventsController < ApplicationController
     @events = @event.matches
   end
 
+  def join
+    @event = Event.find_by(id: params[:id])
+    event_user = EventUser.get_one(current_user.id, @event.id)
+    event_user.status = 1
+    if event_user.save
+      redirect_to(events_path)
+    end
+  end
+
+  def leave
+    @event = Event.find_by(id: params[:id])
+    event_user = EventUser.get_one(current_user.id, @event.id)
+    event_user.status = 0
+    if event_user.save
+      redirect_to(events_path)
+    end
+  end
+
   # GET /events/1
   # GET /events/1.json
   def show

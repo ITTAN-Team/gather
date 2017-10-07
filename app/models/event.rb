@@ -15,7 +15,6 @@ class Event < ApplicationRecord
   end
 
   validates :name, {presence: true, length: {maximum: 255}}
-  validates :real_name, length: {maximum: 255}
   validates :description, length: {maximum: 65535}
   validates :location_url, length: {maximum: 65535}
   validates :address, length: {maximum: 65535}
