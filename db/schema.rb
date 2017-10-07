@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20170921130758) do
 
   create_table "event_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.boolean  "admin",      default: false
+    t.integer  "status",     default: 0
     t.integer  "event_id"
     t.integer  "user_id"
     t.datetime "created_at",                 null: false
@@ -33,7 +34,6 @@ ActiveRecord::Schema.define(version: 20170921130758) do
 
   create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.string   "real_name"
     t.text     "description",  limit: 65535
     t.text     "location_url", limit: 65535
     t.text     "address",      limit: 65535

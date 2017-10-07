@@ -11,4 +11,11 @@ class EventUser < ApplicationRecord
     end
   end
 
+  def self.get_one user_id, event_id
+    event_user = EventUser.where('user_id = ? AND event_id = ?', user_id, event_id)
+    if event_user.present? && event_user.size == 1
+      return event_user.first
+    end
+  end
+
 end

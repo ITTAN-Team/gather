@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   get '/' => 'home#top'
 
   resources :events do
+    member do
+      post 'join'
+      post 'leave'
+    end
     collection do
       get 'search'
     end
