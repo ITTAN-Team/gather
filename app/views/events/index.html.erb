@@ -83,10 +83,6 @@
               <% if is_leave?(participateds_event.status) then %>
                   <div><%= link_to '参加する', join_event_path(participateds_event.event.id), method: :post %></div>
               <% end %>
-              <div><%= link_to 'イベントの詳細', participateds_event.event %></div>
-              <% if is_admin?(current_user.id, participateds_event.event.id) then %>
-                  <div><%= link_to 'イベントを編集', edit_event_path(participateds_event.event) %></div>
-              <% end %>
             </div>
           <% end %>
       <% end %>
@@ -116,10 +112,6 @@
               <% end %>
               <% if is_leave?(participateds_event.status) then %>
                   <div><%= link_to '参加する', join_event_path(participateds_event.event.id), method: :post %></div>
-              <% end %>
-              <div><%= link_to 'イベントの詳細', participateds_event.event %></div>
-              <% if is_admin?(current_user.id, participateds_event.event.id) then %>
-                  <div><%= link_to 'イベントを編集', edit_event_path(participateds_event.event) %></div>
               <% end %>
             </div>
           <% end %>
