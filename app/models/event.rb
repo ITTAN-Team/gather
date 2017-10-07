@@ -14,8 +14,7 @@ class Event < ApplicationRecord
     EventUser.where('user_id = ? AND admin = ?', user_id, false)
   end
 
-  validates :name, presence: true
-  validates :name, length: {maximum: 255}
+  validates :name, {presence: true, length: {maximum: 255}}
   validates :real_name, length: {maximum: 255}
   validates :description, length: {maximum: 65535}
   validates :location_url, length: {maximum: 65535}
