@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :event_users
+  has_many :event_users, dependent: :destroy
   has_many :events, through: :event_users
 
   validates :email, {presence: true, uniqueness: true, length: {maximum: 255}}

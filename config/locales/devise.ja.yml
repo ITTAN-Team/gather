@@ -261,7 +261,7 @@ ja:
     am: 午前
     formats:
       default: "%Y/%m/%d %H:%M:%S"
-      long: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
+      long: "%Y年%m月%d日(%a) %H時%M分"
       short: "%y/%m/%d %H:%M"
     pm: 午後
 
@@ -274,3 +274,11 @@ ja:
         encrypted_password: 確認用パスワード
         remember_me: 次回から自動的にログイン
         current_password: 現在のパスワード
+      event:
+        name: タイトル
+        description: 説明
+        location_url: 会場URL
+        address: 開催場所
+        link: 関連リンク
+        capacity: 定員
+        image: イメージ
