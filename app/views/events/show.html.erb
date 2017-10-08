@@ -49,7 +49,9 @@
       <div class="col-7">
         <div class="row border-bottom">
           <label class="col-4"><i class="fa fa-calendar fa-1x" aria-hidden="true"></i>開催日</label>
-          <div class="col-8"><%= @event.event_date %></div>
+          <% if @event.event_date.present? then %>
+              <div class="col-8"><%= l(@event.event_date, format: :long) %></div>
+          <% end %>
         </div>
         <div class="row border-bottom">
           <label class="col-4"><i class="fa fa-home fa-1x" aria-hidden="true"></i>会場名</label>
