@@ -12,6 +12,13 @@ class EventsController < ApplicationController
   def search
     @event = Search::Event.new(search_params)
     @events = @event.matches
+    @sponsorship_events = []
+    @participateds_events = []
+
+    @events.each do |e|
+      @sponsorship_events = Event.search_sponsorship_events(current_user.id, e.id)
+      @participateds_events = Event.search_participateds_events(current_user.id, e.id)
+    end
   end
 
   def join
