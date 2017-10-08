@@ -12,12 +12,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    if super
-      if @@event_id.present?
-        @event_user = EventUser.new(event_id: @@event_id, user_id: current_user.id)
-        @event_user.save
-      end
-    end
+    super
   end
 
   # GET /resource/edit
