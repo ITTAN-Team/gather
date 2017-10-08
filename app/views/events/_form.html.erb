@@ -10,25 +10,68 @@
       </ul>
     </div>
   <% end %>
-  <div>
-    <label>イベントイメージ</label>
-    <%= f.file_field :image %>
-    <label>タイトル</label>
-    <%= f.text_field :name, :placeholder => 'タイトル' %>
-    <label>開催日</label>
-    <%= f.date_field :event_date %>
-    <label>場所</label>
-    <%= f.text_field :address, :placeholder => '場所' %>
-    <label>会場URL</label>
-    <%= f.text_field :location_url, :placeholder => '会場URL' %>
-    <label>定員</label>
-    <%= f.number_field :capacity, :min => '1', :placeholder => '定員' %>
-    <label>説明</label>
-    <%= f.text_field :description, :placeholder => '説明' %>
-    <label>関連リンク</label>
-    <%= f.text_field :link, :placeholder => '関連リンク' %>
+  <div class="form-group row">
+    <label class="col-2 col-form-label"></label>
+    <div class="col-6">
+      <% if event.image.present? %>
+          <%= image_tag event.image.url %>
+      <% end %>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group row">
+    <label for="image" class="col-2 col-form-label">イメージ</label>
+    <div class="col-6">
+      <label>
+        <span class="button-green-g px-4">
+          イメージを選択
+          <%= f.file_field :image, placeholder: 'イメージ', id: 'image', style: 'display: none;'%>
+        </span>
+      </label>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="name" class="col-2 col-form-label">タイトル</label>
+    <div class="col-6">
+      <%= f.text_field :name, placeholder: 'タイトル', id: 'name', class: 'form-control'%>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="event-date" class="col-2 col-form-label">開催日</label>
+    <div class="col-6">
+      <%= f.date_field :event_date, id: 'event-date', class: 'form-control'%>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="address" class="col-2 col-form-label">開催場所</label>
+    <div class="col-6">
+      <%= f.text_field :address, placeholder: '開催場所', id: 'address', class: 'form-control'%>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="location-url" class="col-2 col-form-label">URL</label>
+    <div class="col-6">
+      <%= f.text_field :location_url, placeholder: 'URL', id: 'location-url', class: 'form-control'%>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="capacity" class="col-2 col-form-label">店員</label>
+    <div class="col-6">
+      <%= f.number_field :capacity, :min => '1', placeholder: '店員', id: 'capacity', class: 'form-control'%>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="link" class="col-2 col-form-label">関連リンク</label>
+    <div class="col-6">
+      <%= f.text_field :link, placeholder: 'タイトル', id: 'link', class: 'form-control'%>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="description" class="col-2 col-form-label">説明</label>
+    <div class="col-10">
+      <%= f.text_area :description, placeholder: 'タイトル', id: 'description', class: 'form-control', rows: '10'%>
+    </div>
+  </div>
+  <div class="row justify-content-md-center mb-3">
+    <%= f.submit 'イベントを保存', class: 'btn btn-success px-5' %>
   </div>
 <% end %>

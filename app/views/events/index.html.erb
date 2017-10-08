@@ -18,30 +18,30 @@
     <%= form_for(@event, url: search_events_path, html: { method: :get, role: 'form' }) do |f| %>
         <div class="row justify-content-md-center">
           <div class="col-md-6">
-            <%= f.text_field :name, class: 'form-control', placeholder: 'タイトル' %>
+            <%= f.text_field :name, class: 'form-control-g', placeholder: 'タイトル' %>
           </div>
           <div class="col-md-6">
-            <%= f.text_field :event_date, class: 'form-control', placeholder: '開催日' %>
+            <%= f.text_field :event_date, class: 'form-control-g', placeholder: '開催日' %>
           </div>
         </div>
         <div class="row justify-content-md-center">
           <div class="col-md-6">
-            <%= f.text_field :address, class: 'form-control', placeholder: '開催場所' %>
+            <%= f.text_field :address, class: 'form-control-g', placeholder: '開催場所' %>
           </div>
           <div class="col-md-6">
-            <%= f.text_field :description, class: 'form-control', placeholder: '内容' %>
+            <%= f.text_field :description, class: 'form-control-g', placeholder: '内容' %>
           </div>
         </div>
         <div class="row justify-content-md-center">
           <div class="col-md-12 text-right">
-            <%= f.submit '検索', class: 'g-button-blue px-5' %>
+            <%= f.submit '検索', class: 'button-blue-g px-5' %>
           </div>
         </div>
     <% end %>
 
     <div class="row justify-content-md-center">
       <div class="col-md-12 text-right">
-        <%= link_to 'イベントを作成する', new_event_path, class: 'g-button-green px-5' %>
+        <%= link_to 'イベントを作成する', new_event_path, class: 'button-green-g px-5' %>
       </div>
     </div>
 
@@ -69,10 +69,10 @@
                     <%= custom_format(sponsorship_event.event.capacity, '人') %>
                   </div>
                   <div>
-                    <%= link_to 'イベントの詳細', sponsorship_event.event, class: 'g-button-green px-2' %>
+                    <%= link_to 'イベントの詳細', sponsorship_event.event, class: 'button-green-g px-2' %>
 
                     <% if is_admin?(current_user.id, sponsorship_event.event.id) then %>
-                      <%= link_to 'イベントを編集', edit_event_path(sponsorship_event.event), class: 'g-button-green px-2' %>
+                      <%= link_to 'イベントを編集', edit_event_path(sponsorship_event.event), class: 'button-green-g px-2' %>
                     <% end %>
                   </div>
                 </div>
@@ -107,10 +107,10 @@
                     <%= custom_format(participateds_event.event.capacity, '人') %>
                   </div>
                   <div>
-                    <%= link_to 'イベントの詳細', participateds_event.event, class: 'g-button-green px-2' %>
+                    <%= link_to 'イベントの詳細', participateds_event.event, class: 'button-green-g px-2' %>
 
                     <% if is_admin?(current_user.id, participateds_event.event.id) then %>
-                        <%= link_to 'イベントを編集', edit_event_path(participateds_event.event), class: 'g-button-green px-2' %>
+                        <%= link_to 'イベントを編集', edit_event_path(participateds_event.event), class: 'button-green-g px-2' %>
                     <% end %>
                   </div>
                 </div>
@@ -146,10 +146,10 @@
                     <%= custom_format(participateds_event.event.capacity, '人') %>
                   </div>
                   <div>
-                    <%= link_to 'イベントの詳細', participateds_event.event, class: 'g-button-green px-2' %>
+                    <%= link_to 'イベントの詳細', participateds_event.event, class: 'button-green-g px-2' %>
 
                     <% if is_admin?(current_user.id, participateds_event.event.id) then %>
-                        <%= link_to 'イベントを編集', edit_event_path(participateds_event.event), class: 'g-button-green px-2' %>
+                        <%= link_to 'イベントを編集', edit_event_path(participateds_event.event), class: 'button-green-g px-2' %>
                     <% end %>
                   </div>
                 </div>
