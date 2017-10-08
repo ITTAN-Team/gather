@@ -28,4 +28,12 @@ class Event < ApplicationRecord
   validates :address, length: {maximum: 65535}
   validates :link, length: {maximum: 65535}
   validates :image, length: {maximum: 65535}
+
+  validate :date_cannot_be_in_the_past
+
+  def date_cannot_be_in_the_past
+    if event_date.present? && event_date < Date.today
+      errors.add('開催日', ': 過去の日付は使用できません')
+    end
+  end
 end
