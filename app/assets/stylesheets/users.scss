@@ -62,6 +62,32 @@
   }
 }
 
+#user-edit {
+  font-family: 'Tsukushi A Round Gothic';
+  h1 {
+    margin-bottom: .5em;
+    padding: .25em 0 .25em .75em;
+    border-left: 6px solid #4AA69D;
+    color: #808080;
+  }
+  h2 {
+    margin-bottom: .5em;
+    color: #808080;
+  }
+  label {
+    color: #808080;
+  }
+  i {
+    margin-right: 1em;
+    color: #808080;
+  }
+  em {
+    color: #808080;
+    font-size: .1rem;
+  }
+}
+
+
 #user-registration {
   @extend #user-login
 }
