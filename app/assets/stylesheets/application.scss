@@ -57,40 +57,82 @@ body {
   margin-bottom: 4%;
 }
 
-.form-control {
+.form-control-g {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.25;
+  color: #495057;
+  background-color: #fff;
+  background-image: none;
+  background-clip: padding-box;
   border: 2px solid rgba(0, 0, 0, 0.15);
   border-radius: 2rem;
+  -webkit-transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
 }
 
-.g-button-green {
+.form-control {
+  border: 2px solid rgba(0, 0, 0, 0.15);
+}
+
+.icon::before {
+  color: #808080;
+  display: inline-block;
+  margin-right: .5em;
+  font-family: fontawesome;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// TODO 復活させる可能性があるため一旦コメントアウト
+//.button-green-g {
+//  padding: .4rem;
+//  background: #78F0A0;
+//  /* Old browsers */
+//  background: -moz-linear-gradient(-45deg, #78F0A0 0%, #67C3CA 100%);
+//  /* FF3.6+ */
+//  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #78F0A0), color-stop(100%, #67C3CA));
+//  /* Chrome,Safari4+ */
+//  background: -webkit-linear-gradient(-45deg, #78F0A0 0%, #67C3CA 100%);
+//  /* Chrome10+,Safari5.1+ */
+//  background: -o-linear-gradient(-45deg, #78F0A0 0%, #67C3CA 100%);
+//  /* Opera 11.10+ */
+//  background: -ms-linear-gradient(-45deg, #78F0A0 0%, #67C3CA 100%);
+//  /* IE10+ */
+//  background: linear-gradient(-45deg, #78F0A0 0%, #67C3CA 100%);
+//  /* W3C */
+//  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#78F0A0, endColorstr=#67C3CA, GradientType=1);
+//  /* IE6-9 fallback on horizontal gradient */
+//  color: #ffffff;
+//  border: none;
+//  border-radius: 2rem;
+//  cursor: pointer;
+//  text-decoration: none !important;
+//  &:hover, &:visited, &:link, &:active {
+//    color: #FFFFFF;
+//  }
+//}
+
+.button-green-g {
+  display: inline-block;
   padding: .4rem;
-  background: #78F0A0;
-  /* Old browsers */
-  background: -moz-linear-gradient(-45deg, #78F0A0 0%, #67C3CA 100%);
-  /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #78F0A0), color-stop(100%, #67C3CA));
-  /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(-45deg, #78F0A0 0%, #67C3CA 100%);
-  /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(-45deg, #78F0A0 0%, #67C3CA 100%);
-  /* Opera 11.10+ */
-  background: -ms-linear-gradient(-45deg, #78F0A0 0%, #67C3CA 100%);
-  /* IE10+ */
-  background: linear-gradient(-45deg, #78F0A0 0%, #67C3CA 100%);
-  /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#78F0A0, endColorstr=#67C3CA, GradientType=1);
-  /* IE6-9 fallback on horizontal gradient */
-  color: #ffffff;
-  border: none;
+  background: #ffffff;
+  color: #4AA69D;
+  border: 2px solid #4AA69D;
   border-radius: 2rem;
   cursor: pointer;
   text-decoration: none !important;
   &:hover, &:visited, &:link, &:active {
-    color: #FFFFFF;
+    color: #4AA69D;
   }
 }
 
-.g-button-blue {
+.button-blue-g {
+  display: inline-block;
   padding: .4rem;
   background: #ACECEE;
   /* Old browsers */
