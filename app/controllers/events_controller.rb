@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  before_action :authenticate
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   # GET /events
@@ -125,5 +126,9 @@ class EventsController < ApplicationController
       params
           .require(:search_event)
           .permit(Search::Event::ATTRIBUTES)
+    end
+
+    def authenticate
+      redirect_to '/' unless user_signed_in?
     end
 end
