@@ -14,7 +14,7 @@ class Event < ApplicationRecord
     EventUser.where('user_id = ? AND event_id = ? AND admin = ?', user_id, event_id, true)
   end
 
-  def self.get_participateds_events user_id
+  def self.get_invited_events user_id
     EventUser.where('user_id = ? AND admin = ?', user_id, false)
   end
 
