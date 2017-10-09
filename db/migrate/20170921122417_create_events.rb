@@ -3,6 +3,7 @@ class CreateEvents < ActiveRecord::Migration[5.0]
     create_table :events do |t|
       t.string :name, limit: 255
       t.text :description
+      t.string :location_name, limit: 255
       t.text :location_url
       t.text :address
       t.text :link

@@ -45,6 +45,12 @@
     </div>
   </div>
   <div class="form-group row">
+    <label for="location-url" class="col-2 col-form-label">会場名</label>
+    <div class="col-6">
+      <%= f.text_field :location_name, placeholder: '会場名', id: 'location_name', class: 'form-control'%>
+    </div>
+  </div>
+  <div class="form-group row">
     <label for="location-url" class="col-2 col-form-label">会場URL</label>
     <div class="col-6">
       <%= f.text_field :location_url, placeholder: '会場URL', id: 'location-url', class: 'form-control'%>

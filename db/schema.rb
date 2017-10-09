@@ -34,16 +34,17 @@ ActiveRecord::Schema.define(version: 20170921130758) do
 
   create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.text     "description",  limit: 65535
-    t.text     "location_url", limit: 65535
-    t.text     "address",      limit: 65535
-    t.text     "link",         limit: 65535
-    t.text     "image",        limit: 65535
+    t.text     "description",   limit: 65535
+    t.string   "location_name"
+    t.text     "location_url",  limit: 65535
+    t.text     "address",       limit: 65535
+    t.text     "link",          limit: 65535
+    t.text     "image",         limit: 65535
     t.integer  "capacity"
     t.integer  "group_id"
     t.datetime "event_date"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
