@@ -5,7 +5,9 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @sponsorship_events = Event.get_sponsorship_events(current_user.id)
-    @participateds_events = Event.get_participateds_events(current_user.id)
+    invited_events = Event.get_invited_events(current_user.id)
+    @participateds_events = invited_events.select { |event| is_join?(event.status) }
+    @invited_events = invited_events.select { |event| is_leave?(event.status) }
     @event = Search::Event.new
   end
 
