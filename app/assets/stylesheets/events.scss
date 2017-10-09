@@ -59,19 +59,29 @@
     color: #808080;
   }
   #invitation {
-    z-index: 10000;
     display: none;
     position: absolute;
     margin: auto;
-    padding: 15px;
+    margin-top: 10%;
+    z-index: 10000;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    width: 26%;
-    height: 25%;
+    width: 40%;
+    height: 170px;
     border-radius: 5px;
+    background-color: #ffffff;
     @extend .depth-4;
+    .header {
+      padding: 15px;
+      background: #4AA69D;
+      border-radius: 5px 5px 0 0 / 5px 5px 0 0;
+      color: #ffffff;
+    }
+    .body {
+      padding: 15px;
+    }
     #invitation-url {
       padding: 5px;
     }
