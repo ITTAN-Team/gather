@@ -7,8 +7,8 @@ class EventsController < ApplicationController
   def index
     @sponsorship_events = Event.get_sponsorship_events(current_user.id)
     invited_events = Event.get_invited_events(current_user.id)
-    @participateds_events = invited_events.select { |event| is_join?(event.status) }
-    @invited_events = invited_events.select { |event| is_leave?(event.status) }
+    @participateds_events = invited_events.select { |event| EventsHelper.is_join?(event.status) }
+    @invited_events = invited_events.select { |event| EventsHelper.is_leave?(event.status) }
     @event = Search::Event.new
   end
 
