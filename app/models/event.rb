@@ -3,6 +3,8 @@ class Event < ApplicationRecord
   has_many :event_users, dependent: :destroy
   has_many :users, through: :event_users
   accepts_nested_attributes_for :event_users
+  geocoded_by :address
+  after_validation :geocode
 
   mount_uploader :image, ImageUploader
 

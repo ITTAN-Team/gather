@@ -45,6 +45,12 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+    @event = Event.find_by(id: params[:id])
+    @latitude = @event.latitude
+
+    @longitude = @event.longitude
+
+    @address = @event.address
   end
 
   # GET /events/new

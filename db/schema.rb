@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(version: 20170921130758) do
     t.string   "location_name"
     t.text     "location_url",  limit: 65535
     t.text     "address",       limit: 65535
+    t.float    "latitude",      limit: 24
+    t.float    "longitude",     limit: 24
     t.text     "link",          limit: 65535
     t.text     "image",         limit: 65535
     t.integer  "capacity"
