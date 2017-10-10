@@ -11,7 +11,9 @@
 
 <div class="container">
   <div id="event-index">
-    <p id="notice"><%= notice %></p>
+    <% if notice.present? %>
+      <div class="alert alert-success"><p id="notice"><%= notice %></p></div>
+    <% end %>
 
     <h1>イベントを検索する</h1>
 
