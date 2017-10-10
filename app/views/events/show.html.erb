@@ -29,7 +29,9 @@
 
 <div class="container">
   <div id="event-show">
-    <p id="notice"><%= notice %></p>
+    <% if notice %>
+        <div class="alert alert-success"><p id="notice"><%= notice %></p></div>
+    <% end %>
     <div class="row">
       <h1 class="col-5"><%= @event.name %></h1>
       <div class="col-7 text-left mt-3">

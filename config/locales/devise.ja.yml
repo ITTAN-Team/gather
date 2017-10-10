@@ -268,8 +268,8 @@ ja:
   activerecord:
     attributes:
       user:
-        name: 名前
-        email: メールアドレス
+        name: ユーザーネーム
+        email: EMail
         password: パスワード
         encrypted_password: 確認用パスワード
         remember_me: 次回から自動的にログイン
