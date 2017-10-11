@@ -8,6 +8,25 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <header>
+    <div class="header-logo">
+      Gather
+    </div>
+    <% if user_signed_in? %>
+      <ul class="header-menus">
+        <li><%= link_to('プロフィールを修正', '/users/edit')%></li>
+        <li><%= link_to('イベントを作成', '/events/new')%></li>
+        <li><%= link_to('ログアウト', '/users/sign_out')%></li>
+      </ul>
+    <% else %>
+      <ul class="header-menus">
+        <li><%= link_to('新規登録', '/users/sign_up')%></li>
+        <li><%= link_to('ログイン', '/users/sign_in')%></li>
+      </ul>
+    <% end %>
+
+  </header>
+
   <body>
     <%= yield %>
   </body>

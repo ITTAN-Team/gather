@@ -1,14 +1,3 @@
-<header>
-  <div class="header-logo">
-    Gather
-  </div>
-  <ul class="header-menus">
-    <li><%= link_to('プロフィールを修正', '/users/edit')%></li>
-    <li><%= link_to('イベントを作成', '/events/new')%></li>
-    <li><%= link_to('ログアウト', '/users/sign_out')%></li>
-  </ul>
-</header>
-
 <script>
   $(function(){
     $('#invitation-url').val('http://localhost:3000/users/sign_up?event_id='+<%= raw @event.id %>)
