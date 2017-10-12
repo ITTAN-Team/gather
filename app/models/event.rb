@@ -30,7 +30,6 @@ class Event < ApplicationRecord
   validates :location_url, length: {maximum: 65535}
   validates :address, length: {maximum: 65535}
   validates :link, length: {maximum: 65535}
-  validates :image, length: {maximum: 65535}
 
   validate :date_cannot_be_in_the_past
 

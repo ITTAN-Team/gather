@@ -18,6 +18,11 @@
     .image {
       border-bottom: 1px solid rgba(0, 0, 0, 0.15);
     }
+    img {
+      height: 200px;
+      width: 348px;
+      object-fit: cover;
+    }
     .info {
       padding: 15px;
       .date {
@@ -91,6 +96,13 @@
   }
   i {
     margin-right: 1em;
+  }
+  img {
+    height: 100%;
+    width: 140px;
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
   }
 }
 

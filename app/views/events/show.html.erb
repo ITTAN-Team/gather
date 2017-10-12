@@ -109,7 +109,7 @@
           <% @event.event_users.each do |event_user| %>
               <% if !event_user.admin && event_user.event.image.present? then %>
                   <div class="col-2">
-                    <%= event_user.image.url %>
+                    <%= image_tag event_user.user.image.url %>
                   </div>
               <% end %>
           <% end %>
@@ -121,7 +121,7 @@
           <% @event.event_users.each do |event_user| %>
               <% if event_user.admin && event_user.user.image.present? then %>
                   <div class="col-2">
-                    <%= event_user.user.image.url %>
+                    <%= image_tag event_user.user.image.url %>
                   </div>
               <% end %>
           <% end %>
