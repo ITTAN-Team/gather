@@ -169,7 +169,7 @@ body {
 header {
   position: fixed;
   top: 0;
-  height: 12%;
+  height: 18%;
   z-index: 100;
   width: 100%;
   background-color: #ffffff;
@@ -180,7 +180,7 @@ header {
   box-shadow: none;
 }
 
-.header-logo {
+.header-logo a{
   float: left;
   padding-top: 10px;
   padding-left: 20px;
@@ -188,11 +188,7 @@ header {
   font-size: 60px;
   line-height: 64px;
   font-family: 'Verveine';
-}
-
-.header-logo a{
-  color: white;
-  font-size: 22px;
+  text-decoration: none;
 }
 
 .header-menus {
