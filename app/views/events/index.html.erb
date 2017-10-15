@@ -45,6 +45,8 @@
                 <div class="image text-center">
                   <% if sponsorship_event.event.image.present? then %>
                       <%= image_tag sponsorship_event.event.image %>
+                  <% else %>
+                      <%= image_tag '/images/no-image.png' %>
                   <% end %>
                 </div>
                 <div class="info">
@@ -87,6 +89,8 @@
               <div class="image text-center">
                 <% if participateds_event.event.image.present? then %>
                     <%= image_tag participateds_event.event.image %>
+                <% else %>
+                    <%= image_tag '/images/no-image.png' %>
                 <% end %>
               </div>
               <div class="info">
@@ -129,6 +133,8 @@
               <div class="image text-center">
                 <% if participateds_event.event.image.present? then %>
                     <%= image_tag participateds_event.event.image %>
+                <% else %>
+                    <%= image_tag '/images/no-image.png' %>
                 <% end %>
               </div>
               <div class="info">
