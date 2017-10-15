@@ -28,8 +28,10 @@ class Event < ApplicationRecord
   validates :description, length: {maximum: 65535}
   validates :location_name, length: {maximum: 255}
   validates :location_url, length: {maximum: 65535}
+  validates :location_url, format: /\A#{URI::regexp(%w(http https))}\z/, allow_blank: true
   validates :address, length: {maximum: 65535}
   validates :link, length: {maximum: 65535}
+  validates :link, format: /\A#{URI::regexp(%w(http https))}\z/, allow_blank: true
 
   validate :date_cannot_be_in_the_past
 
