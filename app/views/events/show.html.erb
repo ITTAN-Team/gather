@@ -96,7 +96,7 @@
         </div>
         <div class="row border-bottom">
           <label class="col-4"><i class="fa fa-file-text-o fa-1x" aria-hidden="true"></i>説明</label>
-          <div class="col-8"><%= @event.description %></div>
+          <div class="col-8"><%= simple_format(@event.description) %></div>
         </div>
         <div class="row border-bottom">
           <label class="col-4"><i class="fa fa-link fa-1x" aria-hidden="true"></i>関連リンク</label>
