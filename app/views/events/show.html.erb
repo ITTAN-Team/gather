@@ -1,6 +1,18 @@
 <script>
   $(function(){
-    $('#invitation-url').val('http://localhost:3000/users/sign_up?event_id='+<%= raw @event.id %>)
+    var domain = <%= current_env %>;
+    switch (domain) {
+      case 'development':
+        domain = 'localhost:3000'
+        break;
+      case 'test':
+        // TODO
+        break;
+      case 'production':
+        domain = 'www.gather.com'
+        break;
+    }
+    $('#invitation-url').val('http://' + domain + '/users/sign_up?event_id='+<%= raw @event.id %>)
     $('#publish-url').on('click', function () {
       $('#invitation').css('display', 'block');
       $('#url-copy').on('click', function () {
