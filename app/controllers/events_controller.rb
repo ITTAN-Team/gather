@@ -16,12 +16,20 @@ class EventsController < ApplicationController
     @event = Search::Event.new(search_params)
     @events = @event.matches
     @sponsorship_events = []
-    @participateds_events = []
+    invited_events = []
 
     @events.each do |e|
-      @sponsorship_events = Event.search_sponsorship_events(current_user.id, e.id)
-      @participateds_events = Event.search_participateds_events(current_user.id, e.id)
+      sponsorship_events = Event.search_sponsorship_events(current_user.id, e.id)
+      sponsorship_events.each do |sponsorship_event|
+        @sponsorship_events.push(sponsorship_event)
+      end
+      participateds_events = Event.search_participateds_events(current_user.id, e.id)
+      participateds_events.each do |participateds_event|
+        invited_events.push(participateds_event)
+      end
     end
+    @participateds_events = invited_events.select { |event| EventsHelper.is_join?(event.status) }
+    @invited_events = invited_events.select { |event| EventsHelper.is_leave?(event.status) }
   end
 
   def join
