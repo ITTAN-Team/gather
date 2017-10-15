@@ -17,20 +17,20 @@
 
         <div class="row justify-content-md-center">
           <div class="col-md-8 col-md-offset-2">
-            <%= f.text_field :name, autofocus: true, class: 'form-control', placeholder: 'ユーザーネーム' %>
+            <%= f.text_field :name, autofocus: true, class: 'form-control', placeholder: 'ユーザーネーム', maxlength: '255' %>
             <p>※ユーザー名はご友人に認識されやすい名前を推奨します</p>
           </div>
         </div>
 
         <div class="row justify-content-md-center">
           <div class="col-md-8 col-md-offset-2">
-            <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'EMail' %>
+            <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'EMail', maxlength: '65535' %>
           </div>
         </div>
 
         <div class="row justify-content-md-center">
           <div class="col-md-8 col-md-offset-2">
-            <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: 'パスワード' %>
+            <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: 'パスワード', maxlength: '65535' %>
             <% if @minimum_password_length %>
                 <em>(<%= @minimum_password_length %> 文字以上の英数字)</em>
             <% end %><br />
@@ -39,7 +39,7 @@
 
         <div class="row justify-content-md-center">
           <div class="col-md-8 col-md-offset-2">
-            <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', placeholder: '確認用パスワード' %>
+            <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', placeholder: '確認用パスワード', maxlength: '65535' %>
           </div>
         </div>
 

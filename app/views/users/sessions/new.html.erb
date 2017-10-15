@@ -15,13 +15,13 @@
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="row justify-content-md-center">
         <div class="col-md-8 col-md-offset-2">
-          <%= f.email_field :email, autofocus: true, class: 'form-control-g', placeholder: 'EMail' %>
+          <%= f.email_field :email, autofocus: true, class: 'form-control-g', placeholder: 'EMail', maxlength: '65535' %>
         </div>
       </div>
 
       <div class="row justify-content-md-center">
         <div class="col-md-8 col-md-offset-2">
-          <%= f.password_field :password, autocomplete: "off", class: 'form-control-g', placeholder: 'パスワード' %>
+          <%= f.password_field :password, autocomplete: "off", class: 'form-control-g', placeholder: 'パスワード', maxlength: '65535' %>
         </div>
       </div>
 
