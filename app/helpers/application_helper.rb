@@ -7,4 +7,7 @@ module ApplicationHelper
       value.to_s + format
     end
   end
+  def current_env
+    raw ENV["RAILS_ENV"].to_json;
+  end
 end
