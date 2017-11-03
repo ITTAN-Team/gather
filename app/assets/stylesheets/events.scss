@@ -43,13 +43,15 @@
     color: #808080;
   }
 
-  @media screen and (max-width:376px) {
+  @media screen and (max-width: 768px) {
     .container {
-      margin: 0 ;
+      margin: 0;
     }
-    .event-button {
-      display: inline-block;
-      padding-left: 100px;
+    h2 {
+      margin-top: 15px;
+    }
+    .form-control-g {
+      margin-bottom: 15px;
     }
   }
 }
@@ -117,6 +119,11 @@
   }
   i {
     margin-right: 1em;
+  }
+  .button-group {
+    a {
+      margin: auto;
+    }
   }
 }
 
