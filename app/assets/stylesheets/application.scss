@@ -134,8 +134,26 @@ body {
   border-radius: 2rem;
   cursor: pointer;
   text-decoration: none !important;
-  &:hover, &:visited, &:link, &:active {
-    color: #4AA69D;
+  &:hover, &:active {
+    transition: all .3s;
+    color: #ffffff;
+    background: #4AA69D;
+  }
+}
+
+.button-red-g {
+  display: inline-block;
+  padding: .4rem;
+  background: #ffffff;
+  color: #a64a53;
+  border: 2px solid #a64a53;
+  border-radius: 2rem;
+  cursor: pointer;
+  text-decoration: none !important;
+  &:hover, &:active {
+    transition: all .3s;
+    color: #ffffff;
+    background: #a64a53;
   }
 }
 
@@ -164,7 +182,9 @@ body {
   cursor: pointer;
   text-decoration: none !important;
   &:hover, &:visited, &:link, &:active {
-    color: #FFFFFF;
+    transition: all .3s;
+    color: #ffffff;
+    opacity: .7;
   }
 }
 
