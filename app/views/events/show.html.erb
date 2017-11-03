@@ -149,10 +149,10 @@
 
     <% if is_admin?(current_user.id, @event.id) then %>
         <div class="row justify-content-md-center mb-2">
-          <%= link_to 'イベントを編集', edit_event_path(@event), class: 'button-blue-g px-5' %>
+          <%= link_to 'イベントを編集', edit_event_path(@event), class: 'button-green-g px-5' %>
         </div>
         <div class="row justify-content-md-center mb-2">
-          <%= link_to 'イベントを削除', @event, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-danger px-5' %>
+          <%= link_to 'イベントを削除', @event, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'button-red-g px-5' %>
         </div>
     <% end %>
     <div class="row justify-content-md-center mb-2">
