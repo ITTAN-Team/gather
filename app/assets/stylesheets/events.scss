@@ -19,8 +19,8 @@
       border-bottom: 1px solid rgba(0, 0, 0, 0.15);
     }
     img {
-      height: 200px;
-      width: 348px;
+      max-height: 200px;
+      max-width: 348px;
       object-fit: cover;
     }
     .info {
@@ -41,6 +41,16 @@
   .no-hosted-event {
     margin: 40px;
     color: #808080;
+  }
+
+  @media screen and (max-width:376px) {
+    .container {
+      margin: 0 ;
+    }
+    .event-button {
+      display: inline-block;
+      padding-left: 100px;
+    }
   }
 }
 

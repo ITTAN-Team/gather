@@ -67,8 +67,8 @@
         <div class="alert alert-success"><p id="notice"><%= notice %></p></div>
     <% end %>
     <div class="row">
-      <h1 class="col-5"><%= @event.name %></h1>
-      <div class="col-7 text-left mt-3">
+      <h1 class="col-md-5 col-sm-12"><%= @event.name %></h1>
+      <div class="col-md-7 col-sm-12 text-right mt-3">
         <button id="publish-url" class="button-green-g">招待URL発行</button>
       </div>
     </div>
@@ -84,16 +84,16 @@
     </div>
     <h2>基本情報</h2>
     <div class="row">
-      <div class="col-7">
+      <div class="col-md-7 col-sm-12">
         <div class="row border-bottom">
-          <label class="col-4"><i class="fa fa-calendar fa-1x" aria-hidden="true"></i>開催日</label>
+          <label class="col-md-4 col-sm-12"><i class="fa fa-calendar fa-1x" aria-hidden="true"></i>開催日</label>
           <% if @event.event_date.present? then %>
-              <div class="col-8"><%= l(@event.event_date, format: :long) %></div>
+              <div class="col-md-8 col-sm-12"><%= l(@event.event_date, format: :long) %></div>
           <% end %>
         </div>
         <div class="row border-bottom">
-          <label class="col-4"><i class="fa fa-home fa-1x" aria-hidden="true"></i>会場</label>
-          <div class="col-8">
+          <label class="col-md-4 col-sm-12"><i class="fa fa-home fa-1x" aria-hidden="true"></i>会場</label>
+          <div class="col-md-8 col-sm-12">
             <%= @event.location_name %>
             <% if @event.location_url.present? then %>
               <%= link_to '', @event.location_url, class: 'icon fa fa-link ml-2' %>
@@ -101,23 +101,23 @@
           </div>
         </div>
         <div class="row border-bottom">
-          <label class="col-4"><i class="fa fa-map-marker fa-1x" aria-hidden="true"></i>住所</label>
-          <div class="col-8"><%= @event.address %></div>
+          <label class="col-md-4 col-sm-12"><i class="fa fa-map-marker fa-1x" aria-hidden="true"></i>住所</label>
+          <div class="col-md-8 col-sm-12"><%= @event.address %></div>
         </div>
         <div class="row border-bottom">
-          <label class="col-4"><i class="fa fa-user fa-1x" aria-hidden="true"></i>定員</label>
-          <div class="col-8"><%= @event.capacity %></div>
+          <label class="col-md-4 col-sm-12"><i class="fa fa-user fa-1x" aria-hidden="true"></i>定員</label>
+          <div class="col-md-8 col-sm-12"><%= @event.capacity %></div>
         </div>
         <div class="row border-bottom">
-          <label class="col-4"><i class="fa fa-file-text-o fa-1x" aria-hidden="true"></i>説明</label>
-          <div class="col-8"><%= simple_format(@event.description) %></div>
+          <label class="col-md-4 col-sm-12"><i class="fa fa-file-text-o fa-1x" aria-hidden="true"></i>説明</label>
+          <div class="col-md-8 col-sm-12"><%= simple_format(@event.description) %></div>
         </div>
         <div class="row border-bottom">
-          <label class="col-4"><i class="fa fa-link fa-1x" aria-hidden="true"></i>関連リンク</label>
-          <div class="col-8"><%= @event.link %></div>
+          <label class="col-md-4 col-sm-12"><i class="fa fa-link fa-1x" aria-hidden="true"></i>関連リンク</label>
+          <div class="col-md-8 col-sm-12"><%= @event.link %></div>
         </div>
         <div class="row">
-          <label class="col-4"><i class="fa fa-users fa-1x" aria-hidden="true"></i><%= "参加者（#{@event.event_users.size}人）" %></label>
+          <label class="col-md-4 col-sm-12"><i class="fa fa-users fa-1x" aria-hidden="true"></i><%= "参加者（#{@event.event_users.size}人）" %></label>
         </div>
         <div class="row">
           <% @event.event_users.each do |event_user| %>
@@ -129,7 +129,7 @@
           <% end %>
         </div>
         <div class="row">
-          <label class="col-4"><i class="fa fa-user-o fa-1x" aria-hidden="true"></i>管理者</label>
+          <label class="col-md-4 col-sm-12"><i class="fa fa-user-o fa-1x" aria-hidden="true"></i>管理者</label>
         </div>
         <div class="row">
           <% @event.event_users.each do |event_user| %>
@@ -141,22 +141,23 @@
           <% end %>
         </div>
       </div>
-      <div class="col-5">
+      <div class="col-md-5 col-sm-12">
         <div class="row"><div id="map"></div></div>
       </div>
     </div>
 
-
-    <% if is_admin?(current_user.id, @event.id) then %>
-        <div class="row justify-content-md-center mb-2">
-          <%= link_to 'イベントを編集', edit_event_path(@event), class: 'button-green-g px-5' %>
-        </div>
-        <div class="row justify-content-md-center mb-2">
-          <%= link_to 'イベントを削除', @event, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'button-red-g px-5' %>
-        </div>
-    <% end %>
-    <div class="row justify-content-md-center mb-2">
-      <%= link_to '戻る', events_path, class: 'button-green-g px-3' %>
+    <div class="text-center">
+      <% if is_admin?(current_user.id, @event.id) then %>
+          <div class="row justify-content-md-center mb-2">
+            <%= link_to 'イベントを編集', edit_event_path(@event), class: 'button-green-g px-5 text-center' %>
+          </div>
+          <div class="row justify-content-md-center mb-2">
+            <%= link_to 'イベントを削除', @event, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'button-red-g px-5 text-center' %>
+          </div>
+      <% end %>
+      <div class="row justify-content-md-center mb-2">
+        <%= link_to '戻る', events_path, class: 'button-green-g px-3 text-center' %>
+      </div>
     </div>
 
   </div>

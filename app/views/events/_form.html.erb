@@ -8,16 +8,16 @@
     </div>
   <% end %>
   <div class="form-group row">
-    <label class="col-2 col-form-label"></label>
-    <div class="col-6">
+    <label class="col-md-2 col-sm-12 col-form-label"></label>
+    <div class="col-md-6 col-xs-12">
       <% if event.image.present? %>
-          <%= image_tag event.image.url %>
+        <%= image_tag event.image.url %>
       <% end %>
     </div>
   </div>
   <div class="form-group row">
-    <label for="image" class="col-2 col-form-label">イメージ</label>
-    <div class="col-6">
+    <label for="image" class="col-md-2 col-sm-12 col-form-label">イメージ</label>
+    <div class="col-md-6 col-xs-12">
       <label>
         <span class="button-green-g px-4">
           イメージを選択
@@ -27,50 +27,50 @@
     </div>
   </div>
   <div class="form-group row">
-    <label for="name" class="col-2 col-form-label">タイトル</label>
-    <div class="col-6">
+    <label for="name" class="col-md-2 col-sm-12 col-form-label">タイトル</label>
+    <div class="col-md-6 col-xs-12">
       <%= f.text_field :name, placeholder: 'タイトル', id: 'name', class: 'form-control', maxlength: '255' %>
     </div>
   </div>
   <div class="form-group row">
-    <label for="event-date" class="col-2 col-form-label">開催日</label>
-    <div class="col-6 form-date">
+    <label for="event-date" class="col-md-2 col-sm-12 col-form-label">開催日</label>
+    <div class="col-md-6 col-xs-12 form-date">
       <%= f.datetime_select :event_date, id: 'event-date', use_month_numbers: true, :minute_step => 10, class: 'form-control'%>
     </div>
   </div>
   <div class="form-group row">
-    <label for="location-url" class="col-2 col-form-label">会場名</label>
-    <div class="col-6">
+    <label for="location-url" class="col-md-2 col-sm-12 col-form-label">会場名</label>
+    <div class="col-md-6 col-xs-12">
       <%= f.text_field :location_name, placeholder: '会場名', id: 'location_name', class: 'form-control', maxlength: '65535' %>
     </div>
   </div>
   <div class="form-group row">
-    <label for="address" class="col-2 col-form-label">住所</label>
-    <div class="col-6">
+    <label for="address" class="col-md-2 col-sm-12 col-form-label">住所</label>
+    <div class="col-md-6 col-xs-12">
       <%= f.text_field :address, placeholder: '住所', id: 'address', class: 'form-control', maxlength: '65535' %>
     </div>
   </div>
   <div class="form-group row">
-    <label for="location-url" class="col-2 col-form-label">会場URL</label>
-    <div class="col-6">
+    <label for="location-url" class="col-md-2 col-sm-12 col-form-label">会場URL</label>
+    <div class="col-md-6 col-xs-12">
       <%= f.text_field :location_url, placeholder: '会場URL', id: 'location-url', class: 'form-control', maxlength: '65535' %>
     </div>
   </div>
   <div class="form-group row">
-    <label for="capacity" class="col-2 col-form-label">定員</label>
-    <div class="col-6">
+    <label for="capacity" class="col-md-2 col-sm-12 col-form-label">定員</label>
+    <div class="col-md-6 col-xs-12">
       <%= f.number_field :capacity, :min => '1', placeholder: '定員', id: 'capacity', class: 'form-control', max: 2147483647%>
     </div>
   </div>
   <div class="form-group row">
-    <label for="link" class="col-2 col-form-label">関連リンク</label>
-    <div class="col-6">
+    <label for="link" class="col-md-2 col-sm-12 col-form-label">関連リンク</label>
+    <div class="col-md-6 col-xs-12">
       <%= f.text_field :link, placeholder: '関連リンク', id: 'link', class: 'form-control', maxlength: '65535' %>
     </div>
   </div>
   <div class="form-group row">
-    <label for="description" class="col-2 col-form-label">説明</label>
-    <div class="col-10">
+    <label for="description" class="col-md-2 col-sm-12 col-form-label">説明</label>
+    <div class="col-md-10 col-sm-12">
       <%= f.text_area :description, placeholder: '説明', id: 'description', class: 'form-control', rows: '10', maxlength: '65535' %>
     </div>
   </div>
