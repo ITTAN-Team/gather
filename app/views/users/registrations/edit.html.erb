@@ -6,7 +6,7 @@
         <%= devise_error_messages! %>
 
         <div class="row">
-          <div class="col-4">
+          <div class="col-md-4 col-sm-12">
             <div class="form-group row">
               <div class="col-12 text-center margin-bottom">
                 <% if current_user.image.present? %>
@@ -25,17 +25,17 @@
               </div>
             </div>
           </div>
-          <div class="col-8">
+          <div class="col-md-8 col-sm-12">
             <div class="form-group row">
-              <label for="name" class="col-4 col-form-label"><i class="fa fa-user fa-1x" aria-hidden="true"></i>ユーザー名</label>
-              <div class="col-5">
+              <label for="name" class="col-md-4 col-xs-12 col-form-label"><i class="fa fa-user fa-1x" aria-hidden="true"></i>ユーザー名</label>
+              <div class="col-md-5 col-xs-12">
                 <%= f.text_field :name , class: 'form-control', maxlength: '255' %>
               </div>
             </div>
 
             <div class="form-group row">
-              <label for="password" class="col-4 col-form-label"><i class="fa fa-lock fa-1x" aria-hidden="true"></i>パスワード<br><em>(変更しない場合は空白にしてください)</em></label>
-              <div class="col-5">
+              <label for="password" class="col-md-4 col-xs-12 col-form-label"><i class="fa fa-lock fa-1x" aria-hidden="true"></i>パスワード<br><em>(変更しない場合は空白にしてください)</em></label>
+              <div class="col-md-5 col-xs-12">
                 <%= f.password_field :password, class: 'form-control', maxlength: '65535' %>
                 <% if @minimum_password_length %>
                     <em><%= @minimum_password_length %> 文字以上の英数字</em>
@@ -44,15 +44,15 @@
             </div>
 
             <div class="form-group row">
-              <label for="password-confirmation" class="col-4 col-form-label"><i class="fa fa-lock fa-1x" aria-hidden="true"></i>パスワード確認</label>
-              <div class="col-5">
+              <label for="password-confirmation" class="col-md-4 col-xs-12 col-form-label"><i class="fa fa-lock fa-1x" aria-hidden="true"></i>パスワード確認</label>
+              <div class="col-md-5 col-xs-12">
                 <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', maxlength: '65535' %>
               </div>
             </div>
 
             <div class="form-group row">
-              <label for="current-password" class="col-4 col-form-label"><i class="fa fa-lock fa-1x" aria-hidden="true"></i>現在のパスワード<br><em>(変更を確認するために現在のパスワードを入力してください)</em></label>
-              <div class="col-5">
+              <label for="current-password" class="col-md-4 col-xs-12 col-form-label"><i class="fa fa-lock fa-1x" aria-hidden="true"></i>現在のパスワード<br><em>(変更を確認するために現在のパスワードを入力してください)</em></label>
+              <div class="col-md-5 col-xs-12">
                 <%= f.password_field :current_password, autocomplete: "off", class: 'form-control', maxlength: '65535' %>
               </div>
             </div>
