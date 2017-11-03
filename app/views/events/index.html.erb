@@ -40,36 +40,36 @@
       <h2>主催のイベント</h2>
       <div class="row">
         <% @sponsorship_events.each do |sponsorship_event| %>
-            <div class="col-sm-4">
-              <div class="event">
-                <div class="image text-center">
-                  <% if sponsorship_event.event.image.present? then %>
-                      <%= image_tag sponsorship_event.event.image %>
-                  <% else %>
-                      <%= image_tag '/images/no-image.png' %>
-                  <% end %>
-                </div>
-                <div class="info">
-                  <div class="date">
-                    <% if sponsorship_event.event.event_date.present? then %>
-                        <%= sponsorship_event.event.event_date.strftime('%Y/%m/%d') %>
+            <div class="col-sm-12 col-md-4">
+              <%= link_to(sponsorship_event.event) do %>
+                <div class="event">
+                  <div class="image text-center">
+                    <% if sponsorship_event.event.image.present? then %>
+                        <%= image_tag sponsorship_event.event.image %>
+                    <% else %>
+                        <%= image_tag '/images/no-image.png' %>
                     <% end %>
                   </div>
-                  <div class="name">
-                    <%= sponsorship_event.event.name %>
-                  </div>
-                  <div class="capacity">
-                    <%= custom_format(sponsorship_event.event.capacity, '人') %>
-                  </div>
-                  <div>
-                    <%= link_to 'イベントの詳細', sponsorship_event.event, class: 'button-green-g px-2' %>
-
-                    <% if is_admin?(current_user.id, sponsorship_event.event.id) then %>
-                      <%= link_to 'イベントを編集', edit_event_path(sponsorship_event.event), class: 'button-green-g px-2' %>
-                    <% end %>
+                  <div class="info">
+                    <div class="date">
+                      <% if sponsorship_event.event.event_date.present? then %>
+                          <%= sponsorship_event.event.event_date.strftime('%Y/%m/%d') %>
+                      <% end %>
+                    </div>
+                    <div class="name">
+                      <%= sponsorship_event.event.name %>
+                    </div>
+                    <div class="capacity">
+                      <%= custom_format(sponsorship_event.event.capacity, '人') %>
+                    </div>
+                    <div class="event-button text-right">
+                      <% if is_admin?(current_user.id, sponsorship_event.event.id) then %>
+                        <%= link_to 'イベントを編集', edit_event_path(sponsorship_event.event), class: 'button-green-g px-2' %>
+                      <% end %>
+                    </div>
                   </div>
                 </div>
-              </div>
+              <% end %>
             </div>
         <% end %>
         <% if @sponsorship_events.empty? %>
@@ -84,36 +84,36 @@
       <h2>参加予定のイベント</h2>
       <div class="row">
         <% @participateds_events.each do |participateds_event| %>
-          <div class="col-sm-4">
-            <div class="event">
-              <div class="image text-center">
-                <% if participateds_event.event.image.present? then %>
-                    <%= image_tag participateds_event.event.image %>
-                <% else %>
-                    <%= image_tag '/images/no-image.png' %>
-                <% end %>
-              </div>
-              <div class="info">
-                <div class="date">
-                  <% if participateds_event.event.event_date.present? then %>
-                      <%= participateds_event.event.event_date.strftime('%Y/%m/%d') %>
+          <div class="col-sm-12 col-md-4">
+            <%= link_to (participateds_event.event) do %>
+              <div class="event">
+                <div class="image text-center">
+                  <% if participateds_event.event.image.present? then %>
+                      <%= image_tag participateds_event.event.image %>
+                  <% else %>
+                      <%= image_tag '/images/no-image.png' %>
                   <% end %>
                 </div>
-                <div class="name">
-                  <%= participateds_event.event.name %>
-                </div>
-                <div class="capacity">
-                  <%= custom_format(participateds_event.event.capacity, '人') %>
-                </div>
-                <div>
-                  <%= link_to 'イベントの詳細', participateds_event.event, class: 'button-green-g px-2' %>
-
-                  <% if is_admin?(current_user.id, participateds_event.event.id) then %>
-                      <%= link_to 'イベントを編集', edit_event_path(participateds_event.event), class: 'button-green-g px-2' %>
-                  <% end %>
+                <div class="info">
+                  <div class="date">
+                    <% if participateds_event.event.event_date.present? then %>
+                        <%= participateds_event.event.event_date.strftime('%Y/%m/%d') %>
+                    <% end %>
+                  </div>
+                  <div class="name">
+                    <%= participateds_event.event.name %>
+                  </div>
+                  <div class="capacity">
+                    <%= custom_format(participateds_event.event.capacity, '人') %>
+                  </div>
+                  <div class="event-button text-right">
+                    <% if is_admin?(current_user.id, participateds_event.event.id) then %>
+                        <%= link_to 'イベントを編集', edit_event_path(participateds_event.event), class: 'button-green-g px-2' %>
+                    <% end %>
+                  </div>
                 </div>
               </div>
-            </div>
+            <% end %>
           </div>
         <% end %>
         <% if @participateds_events.empty? %>
@@ -128,36 +128,36 @@
       <h2>招待されているイベント</h2>
       <div class="row">
         <% @invited_events.each do |participateds_event| %>
-          <div class="col-sm-4">
-            <div class="event">
-              <div class="image text-center">
-                <% if participateds_event.event.image.present? then %>
-                    <%= image_tag participateds_event.event.image %>
-                <% else %>
-                    <%= image_tag '/images/no-image.png' %>
-                <% end %>
-              </div>
-              <div class="info">
-                <div class="date">
-                  <% if participateds_event.event.event_date.present? then %>
-                      <%= participateds_event.event.event_date.strftime('%Y/%m/%d') %>
+          <div class="col-sm-12 col-md-4">
+            <%= link_to (participateds_event.event) do %>
+              <div class="event">
+                <div class="image text-center">
+                  <% if participateds_event.event.image.present? then %>
+                      <%= image_tag participateds_event.event.image %>
+                  <% else %>
+                      <%= image_tag '/images/no-image.png' %>
                   <% end %>
                 </div>
-                <div class="name">
-                  <%= participateds_event.event.name %>
-                </div>
-                <div class="capacity">
-                  <%= custom_format(participateds_event.event.capacity, '人') %>
-                </div>
-                <div>
-                  <%= link_to 'イベントの詳細', participateds_event.event, class: 'button-green-g px-2' %>
-
-                  <% if is_admin?(current_user.id, participateds_event.event.id) then %>
-                      <%= link_to 'イベントを編集', edit_event_path(participateds_event.event), class: 'button-green-g px-2' %>
-                  <% end %>
+                <div class="info">
+                  <div class="date">
+                    <% if participateds_event.event.event_date.present? then %>
+                        <%= participateds_event.event.event_date.strftime('%Y/%m/%d') %>
+                    <% end %>
+                  </div>
+                  <div class="name">
+                    <%= participateds_event.event.name %>
+                  </div>
+                  <div class="capacity">
+                    <%= custom_format(participateds_event.event.capacity, '人') %>
+                  </div>
+                  <div>
+                    <% if is_admin?(current_user.id, participateds_event.event.id) then %>
+                        <%= link_to 'イベントを編集', edit_event_path(participateds_event.event), class: 'button-green-g px-2' %>
+                    <% end %>
+                  </div>
                 </div>
               </div>
-            </div>
+            <% end %>
           </div>
         <% end %>
         <% if @invited_events.empty? %>

@@ -188,6 +188,12 @@ body {
   }
 }
 
+img {
+  max-height: auto;
+  max-width: 348px;
+  object-fit: cover;
+}
+
 /* ヘッダー ================================ */
 
 header {
