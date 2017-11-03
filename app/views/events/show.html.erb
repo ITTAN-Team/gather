@@ -121,9 +121,19 @@
         </div>
         <div class="row">
           <% @event.event_users.each do |event_user| %>
-              <% if !event_user.admin && event_user.event.image.present? then %>
-                  <div class="col-2">
+              <% if !event_user.admin && event_user.user.image.present? %>
+                  <div class="user-cube col-2">
                     <%= image_tag event_user.user.image.url %>
+                    <div class="user-name">
+                      <%= event_user.user.name %>
+                    </div>
+                  </div>
+              <% else %>
+                  <div class="user-cube col-2">
+                    <%= image_tag '/images/no-image.png' %>
+                    <div class="user-name">
+                      <%= event_user.user.name %>
+                    </div>
                   </div>
               <% end %>
           <% end %>
@@ -134,8 +144,18 @@
         <div class="row">
           <% @event.event_users.each do |event_user| %>
               <% if event_user.admin && event_user.user.image.present? then %>
-                  <div class="col-2">
-                    <%= image_tag event_user.user.image.url %>
+                  <div class="user-cube col-2">
+                    <%= image_tag event_user.user.image.thumb %>
+                    <div class="user-name">
+                      <%= event_user.user.name %>
+                    </div>
+                  </div>
+              <% else %>
+                  <div class="user-cube col-2">
+                    <%= image_tag '/images/no-image.png' %>
+                    <div class="user-name">
+                      <%= event_user.user.name %>
+                    </div>
                   </div>
               <% end %>
           <% end %>
