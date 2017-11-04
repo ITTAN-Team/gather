@@ -1,20 +1,17 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
-  # TODO 招待の仕組み実装後に仕様変更の可能性あり、一旦クラス変数
-  @@event_id
 
   # GET /resource/sign_up
   def new
     super
-    @@event_id = params[:event_id]
   end
 
   # POST /resource
   def create
     if super
-      if @@event_id.present?
-        @event_user = EventUser.new(event_id: @@event_id, user_id: current_user.id)
+      if params[:event_id].present?
+        @event_user = EventUser.new(event_id: params[:event_id], user_id: current_user.id)
         @event_user.save
       end
     end

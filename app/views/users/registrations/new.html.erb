@@ -1,3 +1,17 @@
+<script>
+  $(function(){
+    var eventId = new Object;
+    var params = []
+    var pair=location.search.substring(1).split('&');
+    for(var i=0;pair[i];i++) {
+      params = pair[i].split('=');
+    }
+    if(params.length == 2){
+      eventId = params[1]
+      $('#event-id').val(eventId);
+    }
+  })
+</script>
 <div class="container">
   <div id="user-registration">
     <div class="row justify-content-md-center text-center icon-box">
@@ -45,6 +59,7 @@
 
         <div class="row justify-content-md-center">
           <div class="col-md-8 col-md-offset-2 text-right">
+            <input type="hidden" name="event_id" id="event-id"/>
             <%= f.submit "新規アカウント作成", class: 'button-blue-g px-5' %>
           </div>
         </div>
