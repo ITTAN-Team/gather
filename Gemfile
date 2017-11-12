@@ -73,3 +73,5 @@ gem 'geocoder'
 group :production do
     gem 'unicorn'
 end
+
+gem 'fog'
