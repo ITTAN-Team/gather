@@ -145,7 +145,7 @@
           <% @event.event_users.each do |event_user| %>
               <% if event_user.admin && event_user.user.image.present? then %>
                   <div class="user-cube col-2">
-                    <%= image_tag event_user.user.image.thumb %>
+                    <%= image_tag event_user.user.image.user_image %>
                     <div class="user-name">
                       <%= event_user.user.name %>
                     </div>
