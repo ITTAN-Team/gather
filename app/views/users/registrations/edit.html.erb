@@ -10,7 +10,7 @@
             <div class="form-group row">
               <div class="col-12 text-center margin-bottom">
                 <% if current_user.image.present? %>
-                    <%= image_tag current_user.image.user_image %>
+                    <%= image_tag current_user.image.thumb %>
                 <% else %>
                     <%= image_tag '/images/no-image.png' %>
                 <% end %>
