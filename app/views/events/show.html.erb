@@ -9,7 +9,7 @@
         // TODO
         break;
       case 'production':
-        domain = '13.115.207.96'
+        domain = 'www.ittan-together.com'
         break;
     }
     $('#invitation-url').val('http://' + domain + '/users/sign_up?event_id='+<%= raw @event.id %>)
@@ -83,6 +83,11 @@
       </div>
     </div>
     <h2>基本情報</h2>
+    <div class="row">
+      <% if @event.image.present? then %>
+          <%= image_tag @event.image.thumb, class: '' %>
+      <% end %>
+    </div>
     <div class="row">
       <div class="col-md-7 col-sm-12">
         <div class="row border-bottom">
