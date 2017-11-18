@@ -9,10 +9,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    if super
-      if params[:event_id].present?
-        @event_user = EventUser.new(event_id: params[:event_id], user_id: current_user.id)
-        @event_user.save
+    user = User.validateInvitation(params[:user][:email])
+    if user.present?
+      respond_to do |format|
+        format.html { redirect_to new_user_registration_url, notice: 'Emailが重複しています' }
+        format.json { head :no_content }
+      end
+    else
+      if super
+        if params[:event_id].present?
+          @event_user = EventUser.new(event_id: params[:event_id], user_id: current_user.id)
+          @event_user.save
+        end
       end
     end
   end
