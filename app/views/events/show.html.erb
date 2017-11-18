@@ -84,9 +84,11 @@
     </div>
     <h2>基本情報</h2>
     <div class="row">
-      <% if @event.image.present? then %>
-          <%= image_tag @event.image.thumb, class: '' %>
-      <% end %>
+      <div class="col-sm-12">
+        <% if @event.image.present? then %>
+            <%= image_tag @event.image.thumb, class: '' %>
+        <% end %>
+      </div>
     </div>
     <div class="row">
       <div class="col-md-7 col-sm-12">
