@@ -184,7 +184,7 @@ img {
 }
 
 nav > a > img {
-  width: 80%;
+  width: 65%;
 }
 
 .navbar-brand {
@@ -236,6 +236,16 @@ nav > a > img {
   .header-menus {
     position: absolute;
     right: 0;
+  }
+}
+
+@media (max-width:420px) {
+  nav > a > img {
+    width: 65%;
+    float: left;
+  }
+  nav.navbar {
+    padding: 10px 10px;
   }
 }
 
