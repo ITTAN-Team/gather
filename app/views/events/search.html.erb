@@ -62,10 +62,12 @@
                     <%= custom_format(sponsorship_event.event.capacity, '人') %>
                   </div>
                   <div>
-                    <%= link_to 'イベントの詳細', sponsorship_event.event, class: 'button-green-g px-2' %>
+                    <!-- <%= link_to 'イベントの詳細', sponsorship_event.event, class: 'button-green-g px-2' %> -->
 
                     <% if is_admin?(current_user.id, sponsorship_event.event.id) then %>
+                      <div class="event-button text-right">
                         <%= link_to 'イベントを編集', edit_event_path(sponsorship_event.event), class: 'button-green-g px-2' %>
+                      </div>
                     <% end %>
                   </div>
                 </div>
