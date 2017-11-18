@@ -12,7 +12,7 @@
             <%= f.text_field :name, class: 'form-control-g', placeholder: 'タイトル', maxlength: '255' %>
           </div>
           <div class="col-md-6">
-            <%= f.date_field :event_date, id: 'event-date', class: 'form-control-g', placeholder: '開催日' %>
+            <%= f.date_field :event_date, id: 'event-date', class: 'form-control-g', placeholder: '開催日', value: (@event.event_date || Time.now.strftime("%Y-%m-%d")) %>
           </div>
         </div>
         <div class="row justify-content-md-center">
