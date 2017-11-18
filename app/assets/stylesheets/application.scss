@@ -182,6 +182,10 @@ img {
   //border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 }
 
+nav > a > img {
+  width: 80%;
+}
+
 .navbar-brand {
   color: #808080 !important;
   font-size: 40px;
@@ -375,7 +379,8 @@ footer {
 }
 
 footer a > img {
-  width: 100px;
+  width: 200px;
+  margin-bottom: 30px;
 }
 
 @media (max-width: 768px) {

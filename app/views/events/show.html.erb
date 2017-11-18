@@ -127,14 +127,14 @@
         <div class="row">
           <% @event.event_users.each do |event_user| %>
               <% if !event_user.admin && event_user.user.image.present? %>
-                  <div class="user-cube col-2">
+                  <div class="user-cube col-sm-2 col-4">
                     <%= image_tag event_user.user.image.url %>
                     <div class="user-name">
                       <%= event_user.user.name %>
                     </div>
                   </div>
               <% else %>
-                  <div class="user-cube col-2">
+                  <div class="user-cube col-sm-2 col-4">
                     <%= image_tag '/images/no-image.png' %>
                     <div class="user-name">
                       <%= event_user.user.name %>
@@ -149,14 +149,14 @@
         <div class="row">
           <% @event.event_users.each do |event_user| %>
               <% if event_user.admin && event_user.user.image.present? then %>
-                  <div class="user-cube col-2">
+                  <div class="user-cube col-sm-2 col-4">
                     <%= image_tag event_user.user.image.thumb %>
                     <div class="user-name">
                       <%= event_user.user.name %>
                     </div>
                   </div>
               <% else %>
-                  <div class="user-cube col-2">
+                  <div class="user-cube col-sm-2 col-4">
                     <%= image_tag '/images/no-image.png' %>
                     <div class="user-name">
                       <%= event_user.user.name %>
