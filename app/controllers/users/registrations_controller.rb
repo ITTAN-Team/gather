@@ -2,6 +2,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
+  # 招待用のイベントID
+  @@event_id
+
   # GET /resource/sign_up
   def new
     super
@@ -9,6 +12,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
+    if params[:event_id].present?
+      @@event_id = params[:event_id]
+    end
     user = User.validateInvitation(params[:user][:email])
     if user.present?
       respond_to do |format|
@@ -17,8 +23,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
       end
     else
       if super
-        if params[:event_id].present?
-          @event_user = EventUser.new(event_id: params[:event_id], user_id: current_user.id)
+        if @@event_id.present? && current_user.present?
+          @event_user = EventUser.new(event_id: @@event_id, user_id: current_user.id)
           @event_user.save
         end
       end
@@ -44,6 +50,30 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def after_update_path_for(resource)
     events_path
+  end
+
+  private
+
+  def create_user
+    build_resource(sign_up_params)
+
+    resource.save
+    yield resource if block_given?
+    if resource.persisted?
+      if resource.active_for_authentication?
+        set_flash_message! :notice, :signed_up
+        sign_up(resource_name, resource)
+        respond_with resource, location: after_sign_up_path_for(resource)
+      else
+        set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"
+        expire_data_after_sign_in!
+        respond_with resource, location: after_inactive_sign_up_path_for(resource)
+      end
+    else
+      clean_up_passwords resource
+      set_minimum_password_length
+      respond_with resource
+    end
   end
 
   # GET /resource/cancel
