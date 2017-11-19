@@ -60,6 +60,7 @@ class EventsController < ApplicationController
       @lat_lng = {lat: '', lng: ''}
     end
     @address = @event.address
+    @admin = EventUser.is_admin?(current_user.id, @event.id)
   end
 
   # GET /events/new

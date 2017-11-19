@@ -69,7 +69,9 @@
     <div class="row">
       <h1 class="col-md-5 col-sm-12"><%= @event.name %></h1>
       <div class="col-md-7 col-sm-12 text-right mt-3">
-        <button id="publish-url" class="button-green-g">招待URL発行</button>
+        <% if @admin %>
+          <button id="publish-url" class="button-green-g">招待URL発行</button>
+        <% end %>
       </div>
     </div>
     <div id="invitation">
