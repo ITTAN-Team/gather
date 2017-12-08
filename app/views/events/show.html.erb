@@ -150,7 +150,6 @@
         <div class="row">
           <label class="col-md-4 col-sm-12"><i class="fa fa-user-o fa-1x" aria-hidden="true"></i>管理者</label>
         </div>
-        <%= !@event.event_users[0].admin %>
         <div class="row">
           <% @event.event_users.each do |event_user| %>
               <% if event_user.admin && event_user.user.image.present? then %>
