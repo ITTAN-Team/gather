@@ -107,13 +107,17 @@
                   <div class="capacity">
                     <%= custom_format(participateds_event.event.capacity, '人') %>
                   </div>
-                  <div>
-                    <%= link_to 'イベントの詳細', participateds_event.event, class: 'button-green-g px-2' %>
-
+                  <div class="event-button text-right">
                     <% if is_admin?(current_user.id, participateds_event.event.id) then %>
                         <%= link_to 'イベントを編集', edit_event_path(participateds_event.event), class: 'button-green-g px-2' %>
                     <% end %>
                   </div>
+                  <% if is_join?(participateds_event.status) then %>
+                      <div><%= link_to '参加を見送る', leave_event_path(participateds_event.event.id), method: :post %></div>
+                  <% end %>
+                  <% if is_leave?(participateds_event.status) then %>
+                      <div><%= link_to '参加する', join_event_path(participateds_event.event.id), method: :post %></div>
+                  <% end %>
                 </div>
               </div>
             </div>
@@ -152,12 +156,16 @@
                     <%= custom_format(participateds_event.event.capacity, '人') %>
                   </div>
                   <div>
-                    <%= link_to 'イベントの詳細', participateds_event.event, class: 'button-green-g px-2' %>
-
                     <% if is_admin?(current_user.id, participateds_event.event.id) then %>
                         <%= link_to 'イベントを編集', edit_event_path(participateds_event.event), class: 'button-green-g px-2' %>
                     <% end %>
                   </div>
+                  <% if is_join?(participateds_event.status) then %>
+                      <div><%= link_to '参加を見送る', leave_event_path(participateds_event.event.id), method: :post %></div>
+                  <% end %>
+                  <% if is_leave?(participateds_event.status) then %>
+                      <div><%= link_to '参加する', join_event_path(participateds_event.event.id), method: :post %></div>
+                  <% end %>
                 </div>
               </div>
             </div>

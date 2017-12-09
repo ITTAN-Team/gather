@@ -7,6 +7,13 @@ module ApplicationHelper
       value.to_s + format
     end
   end
+  def is_join? status
+    return status == 1
+  end
+
+  def is_leave? status
+    return status == 0
+  end
   def current_env
     raw ENV["RAILS_ENV"].to_json;
   end

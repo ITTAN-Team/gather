@@ -111,6 +111,12 @@
                         <%= link_to 'イベントを編集', edit_event_path(participateds_event.event), class: 'button-green-g px-2' %>
                     <% end %>
                   </div>
+                  <% if is_join?(participateds_event.status) then %>
+                      <div><%= link_to '参加を見送る', leave_event_path(participateds_event.event.id), method: :post %></div>
+                  <% end %>
+                  <% if is_leave?(participateds_event.status) then %>
+                      <div><%= link_to '参加する', join_event_path(participateds_event.event.id), method: :post %></div>
+                  <% end %>
                 </div>
               </div>
             <% end %>
@@ -155,6 +161,12 @@
                         <%= link_to 'イベントを編集', edit_event_path(participateds_event.event), class: 'button-green-g px-2' %>
                     <% end %>
                   </div>
+                  <% if is_join?(participateds_event.status) then %>
+                      <div><%= link_to '参加を見送る', leave_event_path(participateds_event.event.id), method: :post %></div>
+                  <% end %>
+                  <% if is_leave?(participateds_event.status) then %>
+                      <div><%= link_to '参加する', join_event_path(participateds_event.event.id), method: :post %></div>
+                  <% end %>
                 </div>
               </div>
             <% end %>
