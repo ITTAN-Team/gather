@@ -130,14 +130,14 @@
         </div>
         <div class="row">
           <% @event.event_users.each do |event_user| %>
-              <% if event_user.user.image.present? then %>
+              <% if event_user.user.image.present? && (event_user.status == 1 || event_user.admin) then %>
                   <div class="user-cube col-sm-2 col-4">
                     <%= image_tag event_user.user.image.url %>
                     <div class="user-name">
                       <%= event_user.user.name %>
                     </div>
                   </div>
-              <% else %>
+              <% elsif event_user.status == 1 || event_user.admin %>
                   <div class="user-cube col-sm-2 col-4">
                     <%= image_tag '/images/no-image.png' %>
                     <div class="user-name">
